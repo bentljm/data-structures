@@ -13,7 +13,6 @@ var Stack = function() {
   someInstance.pop = function() {
     var key = length - 1;
     var popped = storage[key];
-    delete storage[key];
     length--;
 
     if (length < 0) {
