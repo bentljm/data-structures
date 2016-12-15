@@ -6,25 +6,19 @@ var Stack = function() {
   var length = 0;
   // Implement the methods below
   someInstance.push = function(value) {
-
     storage[length] = value;
-
     length++;
   };
 
   someInstance.pop = function() {
-
     var key = length - 1;
     var popped = storage[key];
-
     delete storage[key];
-
     length--;
 
     if (length < 0) {
       length = 0;
     }
-
     return popped;
   };
 
