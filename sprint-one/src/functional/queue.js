@@ -20,12 +20,9 @@ var Queue = function() {
 
     var keys = Object.keys(storage);
 
-    delete storage['0'];
-
     for (var i = 0; i < keys.length; i++) {
       storage[i] = storage[keys[i + 1]];
     }
-    console.log(storage)
 
     length--;
 
