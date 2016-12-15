@@ -9,21 +9,19 @@ var Stack = function() {
 
     storage[length] = value;
 
-
     length++;
   };
 
   someInstance.pop = function() {
 
-    var key = length - 1
-    var popped = storage[key]
+    var key = length - 1;
+    var popped = storage[key];
 
-    delete storage[key]
+    delete storage[key];
 
     length--;
 
     if (length < 0) {
-      console.log("fired")
       length = 0;
     }
 
