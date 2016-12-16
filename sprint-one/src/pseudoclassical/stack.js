@@ -30,7 +30,3 @@ Stack.prototype.size = function() {
 var test = new Stack();
 
 
-
-
-
-
