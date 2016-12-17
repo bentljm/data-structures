@@ -16,7 +16,6 @@ treeMethods.addChild = function(value) {
 
 };
 
-// proposal
 treeMethods.contains = function (target, root) {
 
   root = root || this;
