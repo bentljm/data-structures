@@ -71,6 +71,7 @@ var Node = function(value) {
   node.next = null;
 
   return node;
+
 };
 
 

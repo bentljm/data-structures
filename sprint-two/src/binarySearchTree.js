@@ -10,6 +10,7 @@ var BinarySearchTree = function(value) {
 
 };
 
+//create object to store all our methods
 var master = {};
 
 //           2 parent, has two children
@@ -22,9 +23,9 @@ var master = {};
 //
 //
 
-
+//insert a value into a binary search tree (this === parent)
 master.insert = function(value) {
-
+  //
   var newChild = BinarySearchTree(value);
 
   if (newChild.value > this.value) {
@@ -40,12 +41,14 @@ master.insert = function(value) {
 
 };
 
+//determine whether a value is in a binary search tree tree
 master.contains = function() {
 
 
 
 };
 
+//determine depth first log (lol)
 master.depthFirstLog = function() {
 
 

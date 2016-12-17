@@ -30,12 +30,15 @@ treeMethods.contains = function (target, root) {
 
 
     if (this.contains(target, root.children[i])) {
+
       return true;
+
     }
 
   }
 
   return false;
+
 };
 
 
