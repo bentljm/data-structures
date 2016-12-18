@@ -1,8 +1,8 @@
 var BinarySearchTree = function(value) {
   var parent = {};
+  parent.value = value;
   parent.left = null;
   parent.right = null;
-  parent.value = value;
 
   _.extend(parent, master);
 
@@ -10,47 +10,81 @@ var BinarySearchTree = function(value) {
 
 };
 
-//create object to store all our methods
+//create object to store all methods
+//parent, 0,1,2 children. Each branch, right is greater than, left is less than
 var master = {};
-
-//           2 parent, has two children
-//         /   \
-//        3     7 parent/child
-//       / \   / \
-//            6
-//
-//
-//
-//
 
 //insert a value into a binary search tree (this === parent)
 master.insert = function(value) {
-  //
-  var newChild = BinarySearchTree(value);
+  // create new node
+  var currentNode = BinarySearchTree(value);
+  //is value greater or less than parent value
+  var traverse = function (node) {
+    //if value is greater than parent.value, traverse down right branch
+    if (currentNode.value > node.value) {
+      if (!node.right) {
+        node.right = currentNode;
+      } else {
+        traverse(node.right);
+      }
+    //if value is less than parent.value, transver down left branch
+    } else if (currentNode.value < node.value) {
+      if (!node.left) {
+        node.left = currentNode;
+      } else {
+        traverse(node.left);
+      }
+    }
+  };
 
-  if (newChild.value > this.value) {
-
-    this.right = this;
-
-  } else if (newChild.value < this.value) {
-
-    this.left = this;
-
-  }
-
+  traverse(this);
 
 };
 
 //determine whether a value is in a binary search tree tree
-master.contains = function() {
+master.contains = function(value) {
+  //traverse thru branches
+  var traverse = function (node) {
+    //check if node is undefined, the value is not contained in the tree
+    if (!node) {
+      return false;
+    }
+    //if value equals node.value, return true
+    if (value === node.value) {
 
+      return true;
+      //if value is greater than parent.value, traverse down right branch
+    } else if (value > node.value) {
 
+      return traverse(node.right);
+    //if value is less than parent.value, traverse down left branch
+    } else if (value < node.value) {
+
+      return traverse(node.left);
+
+    }
+
+  };
+
+  return traverse(this);
 
 };
 
 //determine depth first log (lol)
-master.depthFirstLog = function() {
+master.depthFirstLog = function(callback) {
 
+  callback(this.value);
+
+  if (this.left) {
+
+    this.left.depthFirstLog(callback);
+
+  }
+  if (this.right) {
+
+    this.right.depthFirstLog(callback);
+
+  }
 
 
 };
